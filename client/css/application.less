@@ -1,5 +1,27 @@
 @import "bootstrap";
 
-.btn {
-  background: green;
+html
+{
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
+}
+div.script_container
+{
+  border-right: 1px solid #d5d5d5;
+  height: 100%;
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+div.script {
+  height: 50px;
+  &.active {
+    background-color: rgb(65, 131, 196);
+  }
+  &:hover:not(.active) {
+    background-color: #e5e5e5;
+  }
+  &:not(:first-child) {
+    border-top: 1px solid #d5d5d5;
+  }
 }

@@ -13,7 +13,6 @@ socket.onopen =  () ->
 socket.onclose = () ->
   console.log("Socket Status: " + socket.readyState + " (closed)")
 
-
 socket.onmessage = (msg) ->
   console.log("Received: " + msg.data)
 
