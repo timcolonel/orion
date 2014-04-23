@@ -1,18 +1,80 @@
 @import "bootstrap";
+@import "variables";
 
-html
-{
-  height: 100%;
-  width: 100%;
+html, body {
+  height: 100vh;
+  width: 100vw;
   overflow: hidden;
 }
-div.script_container
-{
+
+@border-color: @lightest_grey;
+
+div.script_container {
   border-right: 1px solid #d5d5d5;
-  height: 100%;
+  height: 100vh;
   overflow-x: hidden;
   overflow-y: auto;
+
+  div.script_list {
+    height: 100%;
+    border-right: 1px solid @border-color;
+    padding-right: 0;
+    padding-left: 0;
+
+    div.script_filter {
+      padding: 1rem;
+      background-color: @white_grey;
+      border-bottom: 1px solid @border-color;
+    }
+
+    .script_item {
+      padding: 2rem;
+      cursor: pointer;
+      &.active {
+        background-color: #4183C4;
+      }
+      &:nth-child(even) {
+        background-color: @white_grey;
+      }
+      &:hover:not(.active) {
+        background-color: @lighter_grey;
+      }
+
+      border-bottom: 1px solid @border-color;
+
+      &.active {
+        background-color: #6B9ED1;
+        color: white;
+        position: relative;
+
+        &:after, &:before {
+          left: 100%;
+          top: 50%;
+          border: solid transparent;
+          content: " ";
+          height: 0;
+          width: 0;
+          position: absolute;
+          pointer-events: none;
+        }
+
+        &:after {
+          border-color: rgba(65, 131, 196, 0);
+          border-left-color: #6B9ED1;
+          border-width: 10px;
+          margin-top: -10px;
+        }
+        &:before {
+          border-color: rgba(65, 131, 196, 0);
+          border-left-color: @border-color;
+          border-width: 11px;
+          margin-top: -11px;
+        }
+      }
+    }
+  }
 }
+
 div.script {
   height: 50px;
   &.active {

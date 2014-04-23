@@ -1,0 +1,5 @@
+<% for script in @scripts: %>
+<div class="script_item">
+  SUPER scrip
+</div>
+<% end %>

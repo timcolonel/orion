@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <script src="../js/jquery.min.js"></script>
+  <script src="../js/socket.io.js"></script>
+  <script src="../bootstrap/js/bootstrap.js"></script>
+  <script>
+    global.$ = $;
+    global.io = io;
+    global.document = document;
+    global.WebSocket = WebSocket
+    require('coffee-script');
+    require('coffee-script/register')
+    require('./../js/application.coffee');
+  </script>
+  <link href="../bootstrap/css/bootstrap.css" rel="stylesheet">
+  <link href="../css/application.less" rel="stylesheet/less" type="text/css"/>
+
+  <script src="../js/less.min.js" type="text/javascript"></script>
+</head>
+<body>
+<div class="container-fluid">
+  <div class='row script_container'>
+    <div class='col-md-4 script_list'>
+      <div class="script_filter">
+        <input type='text' class='script_search form-control' placeholder="Search..." autocomplete="off"/>
+      </div>
+      <div class="script_items">
+        No script found
+      </div>
+    </div>
+  </div>
+</div>
+</body>
+</html>

@@ -1,6 +1,6 @@
 {
     "name": "nw-demo",
-    "main": "index.html",
+    "main": "views/index.html",
     "window": {
         "toolbar": true,
         "width": 1200,
