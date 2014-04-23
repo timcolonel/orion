@@ -9,7 +9,7 @@ module Orion::Engine
     def init
       @scripts = []
       load
-      auto_start
+      #auto_start
     end
 
     def load

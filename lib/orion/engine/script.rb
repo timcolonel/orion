@@ -43,7 +43,7 @@ module Orion::Engine
       script
     end
 
-    def to_json
+    def to_json(options = {})
       {:id => id, :name => @name, :command => @command, :working_dir => @working_dir, :auto_start => @auto_start}.to_json
     end
   end
