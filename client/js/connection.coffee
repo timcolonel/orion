@@ -13,9 +13,10 @@ socket.onclose = () ->
 
 socket.onmessage = (msg) ->
   console.log("Received: " + msg.data)
+  handleMessage(msg.data)
 
 exports.updateScriptList = () ->
-  call_listeners('script_list_change', ['script1', 'script1', 'script1', 'script1'])
+  #send_json action: 'update_script_list'
 
 exports.onScriptListChange = (callback) ->
   exports.on 'script_list_change', callback
@@ -32,9 +33,27 @@ add_listener = (event, callback) ->
   event_listeners[event].push(callback)
 
 call_listeners = (event) ->
-  console.log('calling:')
+  console.log('calling: ' + event)
   array = event_listeners[event]
+  console.log(event_listeners)
   args = Array.prototype.slice.call(arguments, 0)
   if array?
     for callback in array
       callback.apply(this, args[1..-1])
+
+
+handleMessage = (msg) ->
+  json = JSON.parse(msg)
+  if json['error']
+    console.log('Error: ' + json['msg'])
+  else if json['action']
+    handleAction(json)
+
+
+handleAction = (json) ->
+  action = json['action']
+  data = json['data']
+  console.log('handle action: ' + action)
+  console.log('data: ' + data)
+
+  call_listeners(action, data)

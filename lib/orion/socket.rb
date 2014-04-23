@@ -39,15 +39,15 @@ module Orion
       ws.send msg
     end
 
-    def send_data(data)
-      msg = { :data => data }.to_json
+    def send_data(action, data)
+      msg = {:action => action, :data => data}.to_json
       ws.send msg
     end
 
     def handle_action(json)
       case json['action']
         when 'update_script_list'
-          send_data(Orion::Engine::manager.scripts)
+          send_data('script_list_change', Orion::Engine::manager.scripts)
         else
           send_error 'Unknown action'
       end
