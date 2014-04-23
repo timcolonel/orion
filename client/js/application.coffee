@@ -5,7 +5,11 @@ connection = require('./../js/connection.coffee')
 
 $(document).ready () ->
   connection.onScriptListChange (scripts) ->
+    console.log('Update script')
+    console.log(scripts)
     update_script_list(scripts)
+
+  connection.updateScriptList()
 
   $(document).on 'click', '.script_list .script_item', () ->
     item = $(this)
