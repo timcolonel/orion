@@ -1,5 +1,6 @@
 source 'https://rubygems.org'
 gem 'sinatra'
+gem 'sinatra-websocket'
 gem 'thin'
 gem 'childprocess'
-gem 'em-websocket'
+gem 'em-websocket', '0.3.8'

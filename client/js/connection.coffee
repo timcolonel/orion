@@ -1,4 +1,4 @@
-host = "ws://localhost:3001";
+host = "ws://localhost:4567/socket";
 
 socket = new WebSocket(host);
 

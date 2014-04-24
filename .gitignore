@@ -2,4 +2,6 @@
 log/*.log
 pkg/
 .idea/
-/data
+data/
+
+client/node_modules/
