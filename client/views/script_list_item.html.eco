@@ -1,0 +1,10 @@
+<div class="script_item">
+    <div class="script-name">
+        <%= @script['name'] %>
+    </div>
+    <div class="script-action-btn">
+        <div class="btn btn-success btn-sm">
+            <span class="glyphicon glyphicon-play"></span>
+        </div>
+    </div>
+</div>

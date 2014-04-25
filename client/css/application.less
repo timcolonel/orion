@@ -28,7 +28,8 @@ div.script_container {
     }
 
     .script_item {
-      padding: 2rem;
+      position: relative;
+      padding: 1rem;
       cursor: pointer;
       &.active {
         background-color: #4183C4;
@@ -47,6 +48,7 @@ div.script_container {
         color: white;
         position: relative;
 
+        /* For the arrow */
         &:after, &:before {
           left: 100%;
           top: 50%;
@@ -59,17 +61,25 @@ div.script_container {
         }
 
         &:after {
-          border-color: rgba(65, 131, 196, 0);
+          border: 10px solid rgba(65, 131, 196, 0);
           border-left-color: #6B9ED1;
-          border-width: 10px;
           margin-top: -10px;
         }
         &:before {
-          border-color: rgba(65, 131, 196, 0);
+          border: 11px solid rgba(65, 131, 196, 0);
           border-left-color: @border-color;
-          border-width: 11px;
           margin-top: -11px;
         }
+      }
+
+      @action_btn_width: 5rem;
+      .script-name {
+        display: inline-block;
+        width: calc(~"100%" - @action_btn_width);
+      }
+
+      .script-action-btn {
+        display: inline-block;
       }
     }
   }

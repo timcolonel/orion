@@ -1,5 +1,7 @@
+<% fs = require('fs') %>
+<% eco = require('eco') %>
+
+<% item_template = fs.readFileSync('views/script_list_item.html.eco', 'utf-8') %>
 <% for script in @scripts: %>
-<div class="script_item">
-  SUPER scrip
-</div>
+<%- eco.render(item_template, {script: script}) %>
 <% end %>
