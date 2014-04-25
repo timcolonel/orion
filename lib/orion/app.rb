@@ -10,18 +10,7 @@ module Orion
       puts 'Request /socket'
       if request.websocket?
         request.websocket do |ws|
-          ws.onopen do
-            json = {:wdawd => 'wdaaw'}.to_json
-            ws.send json
-            puts 'Socket open'
-          end
-
-          ws.onmessage do |msg|
-          end
-
-          ws.onclose do
-            puts 'websocket closed'
-          end
+          Orion::socket.init(ws)
         end
       else
         puts 'Error not websocket'
