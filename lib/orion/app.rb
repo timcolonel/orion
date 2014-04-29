@@ -1,7 +1,7 @@
 require 'singleton'
 
 module Orion
-  class App< Sinatra::Base
+  class App < Sinatra::Base
     get '/' do
       'Home'
     end
