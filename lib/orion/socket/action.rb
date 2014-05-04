@@ -1,14 +1,17 @@
 module Orion
   module Socket
     class Action
-      actions = {}
+      @@actions = {}
+
       def get(action, &block)
-        actions[action] ||=
-        actions[action] =
+        @@actions[action] ||= []
+        @@actions[action] << block
       end
 
       def delegate(action)
-        actions
+        @@actions[action].each do |block|
+          block.call
+        end
       end
     end
   end
