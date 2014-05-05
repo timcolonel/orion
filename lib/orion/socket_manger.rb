@@ -20,7 +20,7 @@ module Orion
       ws.onmessage do |msg|
         begin
           json = JSON.parse(msg)
-          socket.handle_action(json)
+          Orion::Socket::ActionManager.delegate(json, socket)
         rescue JSON::ParserError
           socket.send_error('Message should be in json format')
         end

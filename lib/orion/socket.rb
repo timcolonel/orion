@@ -17,12 +17,7 @@ module Orion
     end
 
     def handle_action(json)
-      case json['action']
-        when 'update_script_list'
-          send_data('script_list_change', Orion::Engine::manager.scripts)
-        else
-          send_error 'Unknown action'
-      end
+
     end
   end
 end
