@@ -11,7 +11,7 @@ module Orion
           @actions[action] << block
         end
 
-        def delegate(socket, action, data)
+        def delegate(socket, action, params)
           @actions[action].each do |block|
             socket.instance_eval(block)
           end
