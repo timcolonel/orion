@@ -33,6 +33,10 @@ module Orion::Engine
       end
     end
 
+    def find(id)
+      scripts.select { |x| x.id == id }.first
+    end
+
     alias_method :reload, :load
   end
 end
