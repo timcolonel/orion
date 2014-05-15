@@ -1,3 +1,6 @@
+require_relative 'controller'
+require_relative 'main_controller'
+
 module Orion
   module Socket
     module ActionManager
