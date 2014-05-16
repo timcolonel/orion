@@ -1,14 +1,13 @@
-require_relative 'controller'
-require_relative 'main_controller'
 
 module Orion
   module Socket
     module ActionManager
       class << self
-        attr_accessor actions
+        attr_accessor :actions
 
-        @actions = {}
-
+        def reset
+          @actions = {}
+        end
         def route(action, &block)
           @actions[action] ||= []
           @actions[action] << block
@@ -16,10 +15,12 @@ module Orion
 
         def delegate(socket, action, params)
           @actions[action].each do |block|
-            socket.instance_eval(block)
+            socket.instance_eval(&block)
           end
         end
       end
     end
   end
 end
+
+Orion::Socket::ActionManager.reset

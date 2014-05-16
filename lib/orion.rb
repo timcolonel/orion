@@ -1,12 +1,8 @@
-require_relative 'orion/app'
-require_relative 'orion/engine'
-require_relative 'orion/socket/socket'
-require_relative 'orion/engine/script'
-require_relative 'orion/engine/script_manager'
+Dir['./lib/orion/**/*.rb'].each {|file| require file}
 
 module Orion
 
   def self.socket
-    Orion::SocketManger.instance
+    Orion::Socket::SocketManager.instance
   end
 end

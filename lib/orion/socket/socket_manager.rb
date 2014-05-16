@@ -3,7 +3,7 @@ require 'json'
 
 module Orion
   module Socket
-    class SocketManger
+    class SocketManager
       include Singleton
 
       attr_accessor :sockets

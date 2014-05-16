@@ -19,7 +19,7 @@ exports.updateScriptList = () ->
   #send_json action: 'update_script_list'
 
 exports.onScriptListChange = (callback) ->
-  exports.on 'script_list_change', callback
+  exports.on 'update_script_list', callback
 
 exports.on = (event, callback) ->
   add_listener(event, callback)

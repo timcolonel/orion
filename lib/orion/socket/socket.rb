@@ -1,4 +1,4 @@
-require_relative 'socket_manger'
+require_relative 'socket_manager'
 require_relative 'action_manager'
 
 module Orion
