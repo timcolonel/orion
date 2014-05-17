@@ -23,6 +23,15 @@ module Orion
           script.stop
         end
       end
+
+      get 'get_script' do |params|
+        script = Orion::Engine.manager.find(params[:script_id])
+        send_data('get_script', script)
+      end
+
+      get 'update_script' do |params|
+
+      end
     end
   end
 end
