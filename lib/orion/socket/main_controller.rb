@@ -30,7 +30,8 @@ module Orion
       end
 
       get 'update_script' do |params|
-
+        params[:name]
+        params[:command]
       end
     end
   end
