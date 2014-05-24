@@ -1,4 +1,4 @@
-<div class="script_item">
+<div class="script_item" data-id="<%= @script['id'] %>">
     <div class="script-name">
         <%= @script['name'] %>
     </div>

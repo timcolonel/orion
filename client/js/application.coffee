@@ -15,6 +15,7 @@ $(document).ready () ->
     active_item = list.find('.script_item.active')
     active_item.removeClass('active')
     item.addClass('active')
+    load_script(item)
 
 
 render_ejs = (filename, options) ->
@@ -29,3 +30,5 @@ update_script_list = (scripts) ->
   list = $(document).find('.script_list .script_items')
   list.html(render_ejs('views/script_list.html.eco', options))
 
+load_script = (item) ->
+  id = item.data('id')
