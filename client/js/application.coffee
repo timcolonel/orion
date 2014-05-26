@@ -32,3 +32,5 @@ update_script_list = (scripts) ->
 
 load_script = (item) ->
   id = item.data('id')
+
+
