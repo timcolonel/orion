@@ -17,5 +17,10 @@ module Orion
         'Error'
       end
     end
+    
+    get '/script/:id' do
+      Orion::Script::manager.find(params[:id]).to_json  
+    end
+    
   end
 end
