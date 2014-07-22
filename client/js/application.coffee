@@ -3,6 +3,7 @@ eco = require('eco')
 
 connection = require('./../js/connection.coffee')
 
+
 $(document).ready () ->
   connection.onScriptListChange (scripts) ->
     update_script_list(scripts)
