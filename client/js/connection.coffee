@@ -5,11 +5,11 @@ socket = new WebSocket(host);
 event_listeners = {}
 
 socket.onopen = () ->
-  console.log("Socket Status: " + socket.readyState + " (open)")
+  console.debug("Socket Status: " + socket.readyState + " (open)")
   send_json action: 'update_script_list'
 
 socket.onclose = () ->
-  console.log("Socket Status: " + socket.readyState + " (closed)")
+  console.debug("Socket Status: " + socket.readyState + " (closed)")
 
 socket.onmessage = (msg) ->
   console.log("Received: " + msg.data)
@@ -21,25 +21,23 @@ exports.updateScriptList = () ->
 exports.onScriptListChange = (callback) ->
   exports.on 'update_script_list', callback
 
+# Register event for the socket
+# @param event: Event name
+# @param callback: callback function
 exports.on = (event, callback) ->
-  add_listener(event, callback)
+  event_listeners[event] ||= new Array()
+  event_listeners[event].push(callback)
 
 send_json = (json) ->
   socket.send JSON.stringify(json)
 
 
-add_listener = (event, callback) ->
-  event_listeners[event] ||= new Array()
-  event_listeners[event].push(callback)
-
-call_listeners = (event) ->
+call_listeners = (event, args...) ->
   console.log('calling: ' + event)
   array = event_listeners[event]
-  console.log(event_listeners)
-  args = Array.prototype.slice.call(arguments, 0)
   if array?
     for callback in array
-      callback.apply(this, args[1..-1])
+      callback.apply(this, args)
 
 
 handleMessage = (msg) ->
