@@ -13,7 +13,7 @@ socket.onclose = () ->
 
 socket.onmessage = (msg) ->
   console.log("Received: " + msg.data)
-  handleMessage(msg.data)
+  exports.broadcast(msg.action, msg.data)
 
 exports.updateScriptList = () ->
   #send_json action: 'update_script_list'
@@ -28,16 +28,16 @@ exports.on = (event, callback) ->
   event_listeners[event] ||= new Array()
   event_listeners[event].push(callback)
 
-send_json = (json) ->
-  socket.send JSON.stringify(json)
-
-
-call_listeners = (event, args...) ->
-  console.log('calling: ' + event)
+exports.broadcast = (event, args...) ->
   array = event_listeners[event]
   if array?
     for callback in array
       callback.apply(this, args)
+
+exports.send (action, data) ->
+  send_json({action: action, data: data})
+send_json = (json) ->
+  socket.send JSON.stringify(json)
 
 
 handleMessage = (msg) ->
@@ -53,5 +53,4 @@ handleAction = (json) ->
   data = json['data']
   console.log('handle action: ' + action)
   console.log('data: ' + data)
-
   call_listeners(action, data)
