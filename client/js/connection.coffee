@@ -39,7 +39,6 @@ exports.send (action, data) ->
 send_json = (json) ->
   socket.send JSON.stringify(json)
 
-
 handleMessage = (msg) ->
   json = JSON.parse(msg)
   if json['error']
