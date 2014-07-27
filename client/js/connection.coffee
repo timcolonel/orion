@@ -16,7 +16,7 @@ socket.onmessage = (msg) ->
   exports.broadcast(msg.action, msg.data)
 
 exports.updateScriptList = () ->
-  #send_json action: 'update_script_list'
+  exports.send_json action: 'update_script_list'
 
 exports.onScriptListChange = (callback) ->
   exports.on 'update_script_list', callback
