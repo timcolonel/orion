@@ -7,7 +7,6 @@ module Orion
     end
 
     get '/socket' do
-      puts 'Request /socket'
       if request.websocket?
         request.websocket do |ws|
           Orion::socket.init(ws)
