@@ -13,7 +13,7 @@ module Orion
         end
       else
         puts 'Error not websocket'
-        'Error'
+        'Error this url is for websocket connection only!'
       end
     end
     
