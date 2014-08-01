@@ -5,7 +5,8 @@ module Orion
   module Socket
     class Socket
       attr_accessor :ws
-
+      alias_method :send, :send_data
+      
       def initialize(ws)
         @ws = ws
       end
