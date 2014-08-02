@@ -12,10 +12,12 @@ module Orion
         socket = Orion::Socket::Socket.new(ws)
         ws.onopen do
           puts 'WebSocket connection open'
+          sockets << socket
         end
 
         ws.onclose do
           puts 'Connection closed'
+          sockets.remove(socket)
         end
 
         ws.onmessage do |msg|
