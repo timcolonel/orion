@@ -29,6 +29,19 @@ module Orion
           end
         end
       end
+
+      def broadcast_data(action, data)
+        sockets.each do |socket|
+          socket.send_data(action, data)
+        end
+      end
+
+      def broadcast_error(error)
+        sockets.each do |socket|
+          socket.send_error(action, data)
+        end
+      end
+
     end
   end
 end
