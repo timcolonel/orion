@@ -7,7 +7,8 @@ module Orion
       include Singleton
 
       attr_accessor :sockets
-
+      alias_method :broadcast, :broadcast_data
+      
       def init(ws)
         socket = Orion::Socket::Socket.new(ws)
         ws.onopen do
