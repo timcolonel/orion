@@ -8,16 +8,18 @@ module Orion
 
       attr_accessor :sockets
       alias_method :broadcast, :broadcast_data
-      
+
       def init(ws)
         socket = Orion::Socket::Socket.new(ws)
         ws.onopen do
           puts 'WebSocket connection open'
           sockets << socket
+          socket.open()
         end
 
         ws.onclose do
           puts 'Connection closed'
+          socket.close()
           sockets.remove(socket)
         end
 

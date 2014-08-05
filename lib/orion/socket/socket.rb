@@ -6,9 +6,17 @@ module Orion
     class Socket
       attr_accessor :ws
       alias_method :send, :send_data
-      
+
       def initialize(ws)
         @ws = ws
+      end
+
+      def open
+
+      end
+
+      def close
+
       end
 
       def send_error(message)
