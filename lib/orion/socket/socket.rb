@@ -28,6 +28,10 @@ module Orion
         msg = {:action => action, :data => data}.to_json
         @ws.send msg
       end
+
+      def on(action)
+
+      end
     end
   end
 end
