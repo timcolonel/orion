@@ -33,6 +33,10 @@ module Orion
         params[:name]
         params[:command]
       end
+
+      get 'listen_script_log' do |params|
+        
+      end
     end
   end
 end
