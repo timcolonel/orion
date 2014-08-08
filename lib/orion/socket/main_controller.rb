@@ -35,7 +35,7 @@ module Orion
       end
 
       get 'listen_script_log' do |params|
-        
+        script = Orion::Engine.manager.find(params[:script_id])
       end
     end
   end
