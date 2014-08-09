@@ -11,12 +11,12 @@ module Orion
         @ws = ws
       end
 
-      def open
-
+      def onopen(&block)
+        @ws.onopen(&block)
       end
 
-      def close
-
+      def onclose(&block)
+        @ws.onclose(&block)
       end
 
       def send_error(message)
@@ -30,7 +30,7 @@ module Orion
       end
 
       def on(action)
-        
+
       end
     end
   end
