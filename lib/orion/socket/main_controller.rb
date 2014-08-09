@@ -29,9 +29,10 @@ module Orion
         send_data('get_script', script)
       end
 
-      get 'update_script' do |params|
-        params[:name]
-        params[:command]
+      get 'update_script' do |params|        
+        script = Orion::Engine.manager.find(params[:script_id])
+        script.name = params[:name]
+        script.command = params[:command]        
       end
 
       get 'listen_script_log' do |params|
