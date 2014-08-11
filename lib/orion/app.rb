@@ -20,6 +20,5 @@ module Orion
     get '/script/:id' do
       Orion::Script::manager.find(params[:id]).to_json  
     end
-    
   end
 end
