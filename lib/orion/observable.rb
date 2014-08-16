@@ -1,5 +1,11 @@
 module Orion
 	class Observable
+
+		attr_accessor :subscribers
+
+		def initialize
+			@subscribers = {}
+		end
 		def on(action)
 		
 		end
