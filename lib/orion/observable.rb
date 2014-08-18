@@ -9,12 +9,14 @@ module Orion
 			@subscribers = {}
 		end
 
-		def on(action)
+		def on(action, &block)
 			id = SecureRandom.uuid
+			@subscribers[id] = block
+			id
 		end
 
 		def unregister(id)
-
+			@subscribers.delete(id)
 		end
 
 		def broadcast(action, *args)
