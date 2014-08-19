@@ -20,7 +20,9 @@ module Orion
 		end
 
 		def broadcast(action, *args)
-
+			@subscribers.each do |_,subscriber|
+				yield subscriber
+			end
 		end
 	end
 end
