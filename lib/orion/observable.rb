@@ -2,7 +2,6 @@ require 'secure_random'
 
 module Orion
 	class Observable
-
 		attr_accessor :subscribers
 
 		def initialize
